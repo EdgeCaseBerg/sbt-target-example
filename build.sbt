@@ -7,9 +7,16 @@ version := "1.0"
 scalaVersion := "2.10.4"
 
 
-val javaTargetVersion = sys.props.getOrElse("JAVATARGET", default = "1.7") 
+val env = sys.props.getOrElse("ENV", default = "local") 
 
-val targetJvm = s"-target:jvm-$javaTargetVersion" 
+val envData = env match {
+	case "local" => EnvData("1.7","1.7","1.7")
+	case "stage" => EnvData("1.6","1.7","1.6")
+	case "production" => EnvData("1.7","1.7","1.8")
+}
+
+
+val targetJvm = s"-target:jvm-${envData.jvm}" 
 
 scalacOptions := Seq(
   "-unchecked",
@@ -19,4 +26,4 @@ scalacOptions := Seq(
   targetJvm
 )
 
-javacOptions ++= Seq("-source", javaTargetVersion, "-target", javaTargetVersion)
+javacOptions ++= Seq("-source", envData.source, "-target", envData.target)
