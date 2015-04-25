@@ -2,4 +2,4 @@
 
 See build.sbt for the example, and this [post] for details.
 
-[post]:www.ethanjoachimeldridge.info/tech-blog/targeting-java-platforms-with-sbt
+[post]:http://www.ethanjoachimeldridge.info/tech-blog/targeting-java-platforms-with-sbt
