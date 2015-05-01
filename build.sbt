@@ -11,7 +11,7 @@ val env = sys.props.getOrElse("ENV", default = "local")
 
 val envData = env match {
 	case "local" => EnvData("1.7","1.7","1.7")
-	case "stage" => EnvData("1.6","1.7","1.6")
+	case "stage" => EnvData("1.6","1.6","1.6")
 	case "production" => EnvData("1.7","1.7","1.8")
 }
 
